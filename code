@@ -1,0 +1,512 @@
+
+// constants won't change. Used here to set a pin number :
+//const int ledPin =  12;      // the number of the LED pin
+
+// Variables will change :
+int ledState = LOW;             // ledState used to set the LED
+
+// Generally, you shuould use "unsigned long" for variables that hold time
+// The value will quickly become too large for an int to store
+unsigned long previousMillis = 0;        // will store last time LED was updated
+
+// constants won't change :
+const long interval = 1000;           // interval at which to blink (milliseconds)
+
+void setup() {
+  // set the digital pin as output:
+  pinMode(11, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(9, OUTPUT);
+
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+
+  pinMode(6, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(3, OUTPUT);
+  //leegmaken leds
+
+  int ledPins[] = {11, 10, 9, 8, 7, 6, 5, 3};
+  //Here's the loop:
+  //LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+
+}
+
+void loop()
+{
+
+  int ledPins[] = {11, 10, 9, 8, 7, 6, 5, 3}; //tabel met alle leds
+  int ledPinscustom[] = {11, 10, 8, 7, 5, 3}; //tabel met alle leds beperkt leds
+  int ledPinscustom2[] = {10, 9, 8, 7, 6, 5}; //tabel met alle leds beperkt leds
+
+
+  ///////////////
+
+  ////////
+  //LEDs 2x3+ wit
+  for (int lus = 0; lus <= 8; lus++) {
+    // for(int i = 0; i <= 7; i++){
+    // digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+    // }
+    for (int j = 0; j <= 5; j++) {
+      digitalWrite(ledPins[2], LOW);
+      digitalWrite(ledPins[5], LOW);
+      digitalWrite(ledPinscustom[j], HIGH); //Turns on LED #i each time this runs
+    }
+    delay(150);
+    for (int k = 0; k <= 5; k++) {
+      digitalWrite(ledPins[0], LOW);
+      digitalWrite(ledPins[7], LOW);
+      digitalWrite(ledPinscustom2[k], HIGH); //Turns on LED #i each time this runs
+    }
+    delay(150);
+  } //end lus
+  ////////////
+
+
+
+
+  ////////
+  //LEDs 4x4 outrunner
+  // digitalWrite(ledPins[3], HIGH);
+  //digitalWrite(ledPins[4], HIGH); // wit aan
+  for (int lus = 0; lus <= 6; lus++) {
+    for (int i = 4; i >= 0; i--) {
+      digitalWrite(ledPins[i ], HIGH); //Turns on LED #i each time this runs
+      digitalWrite(ledPins[7 - i], HIGH); //Turns on LED #i each time this runs
+      delay(50);
+      digitalWrite(ledPins[i ], LOW); //Turns on LED #i each time this runs
+      digitalWrite(ledPins[7 - i], LOW); //Turns on LED #i each time this runs
+      delay(50);
+    }
+    //delay(150);
+
+  } //end lus
+  ////////////
+
+
+  ////////
+  //4x4 inrunner
+  //  digitalWrite(ledPins[3], HIGH);
+  // digitalWrite(ledPins[4], HIGH); // wit aan
+  for (int lus = 0; lus <= 6; lus++) {
+    for (int i = 0; i <= 3; i++) {
+      digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+      digitalWrite(ledPins[7 - i], HIGH); //Turns on LED #i each time this runs
+      delay(50);
+      digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+      digitalWrite(ledPins[7 - i], LOW); //Turns on LED #i each time this runs
+      delay(50);
+    }
+    //delay(150);
+
+  }//end lus
+  ////////////
+
+
+
+
+
+
+
+  ////////////////////
+
+
+
+  //LEDs lightaan rood naar blauw
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    delay(100);
+  }
+
+
+
+  //LEDs lightuit rood naar blauw
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+    delay(100);
+  }
+
+  //LEDs lightaan blauw naar rood
+  for (int i = 7; i >= 0; i--) {
+    digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    delay(100);
+  }
+
+  //LEDs lightuit rood naar blauw
+  for (int i = 7; i >= 0; i--) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+    delay(100);
+  }
+
+  //////////
+  ////LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(100);
+  //////////////
+  ////LEDs allesaan
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+  }
+  delay(200);
+  // ///////////
+  //
+  // ////////
+  ////LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(150);
+  //////////////
+  //
+  //LEDs lightaan 1stuk rood naar blauw
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    delay(200);
+    digitalWrite(ledPins[i], LOW);
+  }
+  //
+  //
+  //LEDs lightaan 1stuk blauw naar rood
+  for (int i = 7; i >= 0; i--) {
+    digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    delay(200);
+    digitalWrite(ledPins[i], LOW);
+  }
+
+  ////////
+  //LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(150);
+  ////////////
+
+
+  // fade rood in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[0], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+
+  // fade rood out from max to min in increments of 5 points:
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[0], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+
+  ////////////////////////
+
+  // fade blauw in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+
+  // fade blauw out from max to min in increments of 5 points:
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(30);
+  }
+  ///////////////////////
+
+  ////////////
+  //wit aan
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[3], HIGH); //Turns on LED #i each time this runs
+    digitalWrite(ledPins[4], HIGH); //Turns on LED #i each time this runs
+  }
+  delay(400);
+  ///////////
+
+  ////////
+  //LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(150);
+  ////////////
+
+  ////////////////////////
+
+  // fade blauw en rood in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[0], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(25);
+  }
+
+  // fade blauw en rood out from max to min in increments of 5 points:
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[0], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(25);
+  }
+  ///////////////////////
+  //
+  //  ////////////////////////
+  //
+  // fade blauw en rood in from min to max in increments of 5 points:
+  for (int fadeValue = 0 ; fadeValue <= 255; fadeValue += 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[0], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(25);
+  }
+
+  // fade blauw en rood out from max to min in increments of 5 points:
+  for (int fadeValue = 255 ; fadeValue >= 0; fadeValue -= 5) {
+    // sets the value (range from 0 to 255):
+    analogWrite(ledPins[7], fadeValue);
+    analogWrite(ledPins[6], fadeValue);
+    analogWrite(ledPins[5], fadeValue);
+    analogWrite(ledPins[2], fadeValue);
+    analogWrite(ledPins[1], fadeValue);
+    analogWrite(ledPins[0], fadeValue);
+    // wait for 30 milliseconds to see the dimming effect
+    delay(25);
+  }
+  ///////////////////////
+
+  ////////////
+  //4links 4rechts
+
+  for (int lus = 0; lus <= 6; lus++) {
+
+    for (int i = 0; i <= 3; i++) {
+      digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    }
+    for (int i = 4; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+    }
+    delay(100);
+    for (int i = 0; i <= 3; i++) {
+      digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+    }
+    for (int i = 4; i <= 7; i++) {
+      digitalWrite(ledPins[i], HIGH); //Turns on LED #i each time this runs
+    }
+    delay(100);
+
+  }//end lus
+  //////////////////////////////////
+  ////////
+  //LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(150);
+  ////////////
+
+  ////blauw wit rood runningled left to right
+  for (int lus = 0; lus <= 20; lus++) {
+
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+
+    digitalWrite(ledPins[0], HIGH);
+    digitalWrite(ledPins[1], HIGH);
+    digitalWrite(ledPins[2], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+    delay(30);
+    digitalWrite(ledPins[3], HIGH);
+    digitalWrite(ledPins[4], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+    delay(30);
+    digitalWrite(ledPins[5], HIGH);
+    digitalWrite(ledPins[6], HIGH);
+    digitalWrite(ledPins[7], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+  }//einde for cyclus van lus
+  ////////////
+
+  ////////////
+
+  //blauw wit rood runningled right to left
+  for (int lus = 0; lus <= 6; lus++) {
+
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+
+    digitalWrite(ledPins[7], HIGH);
+    digitalWrite(ledPins[6], HIGH);
+    digitalWrite(ledPins[5], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+    delay(30);
+    digitalWrite(ledPins[3], HIGH);
+    digitalWrite(ledPins[4], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+    delay(30);
+    digitalWrite(ledPins[2], HIGH);
+    digitalWrite(ledPins[1], HIGH);
+    digitalWrite(ledPins[0], HIGH);
+    delay(150);
+    for (int i = 0; i <= 7; i++) {
+      digitalWrite(ledPins[i], LOW); //alles uit
+    }
+  }//einde for cyclus van lus
+  //////////////
+
+
+
+
+
+  //LEDs dim wit door rap aanuit
+  digitalWrite(ledPins[3], HIGH);//ref
+
+  for (int lus = 0; lus <= 100; lus++) {
+    int  pwmrust = 2;
+    digitalWrite(ledPins[3], LOW);
+    digitalWrite(ledPins[4], LOW);
+    delay(30);
+    digitalWrite(ledPins[3], HIGH);
+    digitalWrite(ledPins[4], HIGH);
+    delay(2);
+
+  }//end lus
+  digitalWrite(ledPins[3], HIGH);//strobescoop
+  digitalWrite(ledPins[4], HIGH);
+  delay(120);
+
+  //////////////
+
+  //LEDs alles 50% + strobepuls
+  digitalWrite(ledPins[3], HIGH);//ref
+
+  for (int lus = 0; lus <= 20; lus++) {
+    int  pwmrust = 2;
+    digitalWrite(ledPins[0], LOW);
+    digitalWrite(ledPins[1], LOW);
+    digitalWrite(ledPins[2], LOW);
+    digitalWrite(ledPins[3], LOW);
+    digitalWrite(ledPins[4], LOW);
+    digitalWrite(ledPins[5], LOW);
+    digitalWrite(ledPins[6], LOW);
+    digitalWrite(ledPins[7], LOW);
+
+    delay(30);
+    digitalWrite(ledPins[0], HIGH);
+    digitalWrite(ledPins[1], HIGH);
+    digitalWrite(ledPins[2], HIGH);
+    digitalWrite(ledPins[3], HIGH);
+    digitalWrite(ledPins[4], HIGH);
+    digitalWrite(ledPins[5], HIGH);
+    digitalWrite(ledPins[6], HIGH);
+    digitalWrite(ledPins[7], HIGH);
+    delay(2);
+
+  }//end lus
+  digitalWrite(ledPins[0], HIGH);
+  digitalWrite(ledPins[1], HIGH);
+  digitalWrite(ledPins[2], HIGH);
+  digitalWrite(ledPins[3], HIGH);
+  digitalWrite(ledPins[4], HIGH);
+  digitalWrite(ledPins[5], HIGH);
+  digitalWrite(ledPins[6], HIGH);
+  digitalWrite(ledPins[7], HIGH);
+  delay(120);
+
+  ////////////
+
+  //LEDs alles 50%
+  digitalWrite(ledPins[3], HIGH);//ref
+
+  for (int lus = 0; lus <= 20; lus++) {
+    int  dimmer = 3;
+    analogWrite(ledPins[0], dimmer);
+    analogWrite(ledPins[1], dimmer);
+    analogWrite(ledPins[2], dimmer);
+    digitalWrite(ledPins[3], LOW);
+    digitalWrite(ledPins[4], LOW);
+    analogWrite(ledPins[5], dimmer);
+    analogWrite(ledPins[6], dimmer);
+    analogWrite(ledPins[7], dimmer);
+
+    delay(35);
+    analogWrite(ledPins[0], dimmer);
+    analogWrite(ledPins[1], dimmer);
+    analogWrite(ledPins[2], dimmer);
+    digitalWrite(ledPins[3], HIGH);
+    digitalWrite(ledPins[4], HIGH);
+    analogWrite(ledPins[5], dimmer);
+    analogWrite(ledPins[6], dimmer);
+    analogWrite(ledPins[7], dimmer);
+    delay(1);
+
+  }//end lus
+
+
+  ////////////
+  ////////
+  //LEDs allesuit
+  for (int i = 0; i <= 7; i++) {
+    digitalWrite(ledPins[i], LOW); //Turns on LED #i each time this runs
+  }
+  delay(150);
+  ////////////
+
+
+
+
+
+
+
+
+  ///////////////
+  // delay(100);
+}//einde prog
